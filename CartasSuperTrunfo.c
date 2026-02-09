@@ -11,6 +11,8 @@ int main()
     float area_km21;
     float pib1;
     int pontos_turisticos1;
+    float densidade1;
+    float pib_per_capita1;
 
     // ===== CARTA 2 =====
     char estado2;
@@ -20,6 +22,8 @@ int main()
     float area_km22;
     float pib2;
     int pontos_turisticos2;
+    float densidade2;
+    float pib_per_capita2;
 
     // ============================
     // ENTRADA CARTA 1
@@ -30,17 +34,21 @@ int main()
     scanf(" %c", &estado1);
 
     // valida codigo carta 1
-    do {
+    do
+    {
         printf("Codigo da Carta (ex: %c01 ate %c04): \n", estado1, estado1);
         scanf("%s", codigo1);
 
         if (strlen(codigo1) != 3 ||
             codigo1[0] != estado1 ||
             codigo1[1] != '0' ||
-            codigo1[2] < '1' || codigo1[2] > '4') {
+            codigo1[2] < '1' || codigo1[2] > '4')
+        {
 
             printf("❌ Codigo invalido! Tente novamente.\n");
-        } else {
+        }
+        else
+        {
             break;
         }
 
@@ -61,7 +69,6 @@ int main()
     printf("Pontos Turisticos: \n");
     scanf("%d", &pontos_turisticos1);
 
-
     // ============================
     // ENTRADA CARTA 2
     // ============================
@@ -71,17 +78,21 @@ int main()
     scanf(" %c", &estado2);
 
     // valida codigo carta 2
-    do {
+    do
+    {
         printf("Codigo da Carta (ex: %c01 ate %c04): \n", estado2, estado2);
         scanf("%s", codigo2);
 
         if (strlen(codigo2) != 3 ||
             codigo2[0] != estado2 ||
             codigo2[1] != '0' ||
-            codigo2[2] < '1' || codigo2[2] > '4') {
+            codigo2[2] < '1' || codigo2[2] > '4')
+        {
 
             printf("❌ Codigo invalido! Tente novamente.\n");
-        } else {
+        }
+        else
+        {
             break;
         }
 
@@ -102,6 +113,11 @@ int main()
     printf("Pontos Turisticos: \n");
     scanf("%d", &pontos_turisticos2);
 
+    densidade1 = populacao1 / area_km21;
+    densidade2 = populacao2 / area_km22;
+
+    pib_per_capita1 = pib1 / populacao1;
+    pib_per_capita2 = pib2 / populacao2;
 
     // ============================
     // EXIBIÇÃO
@@ -116,6 +132,8 @@ int main()
     printf("Area em km2: %.2f\n", area_km21);
     printf("Pib: %.2f\n", pib1);
     printf("Pontos Turisticos: %d\n", pontos_turisticos1);
+    printf("Densidade Populacional: %.2f hab/km2\n", densidade1);
+    printf("Pib Per Capita: %.2f pib1/populacao1\n", pib_per_capita1);
 
     printf("\nCarta 2:\n");
     printf("Estado: %c\n", estado2);
@@ -125,6 +143,8 @@ int main()
     printf("Area em km2: %.2f\n", area_km22);
     printf("Pib: %.2f\n", pib2);
     printf("Pontos Turisticos: %d\n", pontos_turisticos2);
+    printf("Densidade Populacional: %.2f hab/km2\n", densidade2);
+    printf("Pib Per Capita: %.2f pib2/populacao2\n", pib_per_capita2);
 
     return 0;
 }
